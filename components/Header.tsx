@@ -3,20 +3,20 @@
 import { useState } from "react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { Menu, X, Search, Bell } from "lucide-react"
+import { Menu, X } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
 import { useLanguage } from "@/contexts/LanguageContext"
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const { language, setLanguage, t } = useLanguage()
+  const { t } = useLanguage()
 
   const scrollToFeaturedJobs = () => {
     const featuredJobsSection = document.getElementById("featured-jobs")
     if (featuredJobsSection) {
       featuredJobsSection.scrollIntoView({ behavior: "smooth" })
     }
-    setIsMenuOpen(false) // Close mobile menu if open
+    setIsMenuOpen(false)
   }
 
   return (
@@ -36,9 +36,7 @@ export default function Header() {
             >
               <span className="text-white font-bold text-lg">V</span>
             </motion.div>
-            <span className="text-xl font-bold text-gray-800">
-              {language === "ja" ? "クリーニングジャパン" : "Cleaning Japan"}
-            </span>
+            <span className="text-xl font-bold text-gray-800">Cleaning Japan</span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -50,36 +48,6 @@ export default function Header() {
               {t("header.jobList")}
             </button>
           </nav>
-
-          {/* Desktop Actions */}
-          <div className="hidden md:flex items-center space-x-4">
-            {/* Language Switcher */}
-            <div className="flex items-center bg-gray-100 rounded-lg p-1">
-              <button
-                onClick={() => setLanguage("ja")}
-                className={`px-3 py-1 rounded-md text-sm font-medium transition-all ${
-                  language === "ja" ? "bg-white text-amber-600 shadow-sm" : "text-gray-600 hover:text-amber-600"
-                }`}
-              >
-                JP
-              </button>
-              <button
-                onClick={() => setLanguage("vn")}
-                className={`px-3 py-1 rounded-md text-sm font-medium transition-all ${
-                  language === "vn" ? "bg-white text-amber-600 shadow-sm" : "text-gray-600 hover:text-amber-600"
-                }`}
-              >
-                VN
-              </button>
-            </div>
-
-            <Button variant="ghost" size="icon">
-              <Search className="h-5 w-5" />
-            </Button>
-            <Button variant="ghost" size="icon">
-              <Bell className="h-5 w-5" />
-            </Button>
-          </div>
 
           {/* Mobile Menu Button */}
           <Button variant="ghost" size="icon" className="md:hidden" onClick={() => setIsMenuOpen(!isMenuOpen)}>
@@ -107,26 +75,6 @@ export default function Header() {
                 >
                   {t("header.jobList")}
                 </button>
-
-                {/* Mobile Language Switcher */}
-                <div className="flex items-center bg-gray-100 rounded-lg p-1 w-fit">
-                  <button
-                    onClick={() => setLanguage("ja")}
-                    className={`px-3 py-1 rounded-md text-sm font-medium transition-all ${
-                      language === "ja" ? "bg-white text-amber-600 shadow-sm" : "text-gray-600 hover:text-amber-600"
-                    }`}
-                  >
-                    JP
-                  </button>
-                  <button
-                    onClick={() => setLanguage("vn")}
-                    className={`px-3 py-1 rounded-md text-sm font-medium transition-all ${
-                      language === "vn" ? "bg-white text-amber-600 shadow-sm" : "text-gray-600 hover:text-amber-600"
-                    }`}
-                  >
-                    VN
-                  </button>
-                </div>
               </nav>
             </motion.div>
           )}

@@ -9,7 +9,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { useLanguage } from "@/contexts/LanguageContext"
 
 export default function JobFilters() {
-  const { t, language } = useLanguage()
+  const { t } = useLanguage()
 
   const jobTypes = [
     t("jobType.fullTime"),
@@ -19,10 +19,7 @@ export default function JobFilters() {
     t("jobType.freelance"),
   ]
 
-  const locations =
-    language === "ja"
-      ? ["東京都", "大阪府", "神奈川県", "愛知県", "埼玉県", "千葉県", "兵庫県", "福岡県"]
-      : ["Tokyo", "Osaka", "Kanagawa", "Aichi", "Saitama", "Chiba", "Hyogo", "Fukuoka"]
+  const locations = ["Tokyo", "Osaka", "Kanagawa", "Aichi", "Saitama", "Chiba", "Hyogo", "Fukuoka"]
 
   const industries = [
     t("categories.vacation"),
@@ -45,7 +42,7 @@ export default function JobFilters() {
       {/* Employment Type */}
       <Card>
         <CardHeader>
-          <CardTitle className="text-lg">{language === "ja" ? "雇用形態" : "Hình thức làm việc"}</CardTitle>
+          <CardTitle className="text-lg">Hình thức làm việc</CardTitle>
         </CardHeader>
         <CardContent className="space-y-3">
           {jobTypes.map((type) => (
@@ -62,7 +59,7 @@ export default function JobFilters() {
       {/* Location */}
       <Card>
         <CardHeader>
-          <CardTitle className="text-lg">{language === "ja" ? "勤務地" : "Địa điểm làm việc"}</CardTitle>
+          <CardTitle className="text-lg">Địa điểm làm việc</CardTitle>
         </CardHeader>
         <CardContent className="space-y-3">
           {locations.map((location) => (
@@ -79,7 +76,7 @@ export default function JobFilters() {
       {/* Industry */}
       <Card>
         <CardHeader>
-          <CardTitle className="text-lg">{language === "ja" ? "業界・職種" : "Ngành nghề"}</CardTitle>
+          <CardTitle className="text-lg">Ngành nghề</CardTitle>
         </CardHeader>
         <CardContent className="space-y-3">
           {industries.map((industry) => (
@@ -96,14 +93,14 @@ export default function JobFilters() {
       {/* Salary Range */}
       <Card>
         <CardHeader>
-          <CardTitle className="text-lg">{language === "ja" ? "年収" : "Lương năm"}</CardTitle>
+          <CardTitle className="text-lg">Lương năm</CardTitle>
         </CardHeader>
         <CardContent>
           <div className="space-y-4">
             <Slider defaultValue={[300]} max={1000} min={200} step={50} className="w-full" />
             <div className="flex justify-between text-sm text-gray-600">
-              <span>{language === "ja" ? "200万円" : "200 triệu yen"}</span>
-              <span>{language === "ja" ? "1000万円" : "1000 triệu yen"}</span>
+              <span>200 triệu yen</span>
+              <span>1000 triệu yen</span>
             </div>
           </div>
         </CardContent>
@@ -111,12 +108,12 @@ export default function JobFilters() {
 
       {/* Apply Filters */}
       <Button className="w-full bg-gradient-to-r from-amber-500 to-red-500 hover:from-amber-600 hover:to-red-600">
-        {language === "ja" ? "フィルターを適用" : "Áp dụng bộ lọc"}
+        Áp dụng bộ lọc
       </Button>
 
       {/* Clear Filters */}
       <Button variant="outline" className="w-full">
-        {language === "ja" ? "フィルターをクリア" : "Xóa bộ lọc"}
+        Xóa bộ lọc
       </Button>
     </motion.div>
   )
