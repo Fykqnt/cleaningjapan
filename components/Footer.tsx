@@ -61,9 +61,17 @@ export default function Footer() {
           viewport={{ once: true }}
           className="border-t border-gray-700 mt-12 pt-8 text-center"
         >
-          <p className="text-gray-400">
-            {t("footer.copyright")}
-          </p>
+          <div className="flex flex-col md:flex-row justify-center items-center space-y-2 md:space-y-0 md:space-x-6">
+            <p className="text-gray-400">
+              {t("footer.copyright")}
+            </p>
+            <Link 
+              href="/privacy" 
+              className="text-gray-400 hover:text-amber-400 transition-colors"
+            >
+              {t("footer.privacyPolicy")}
+            </Link>
+          </div>
         </motion.div>
       </div>
     </footer>

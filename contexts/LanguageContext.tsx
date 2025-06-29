@@ -93,6 +93,7 @@ const translations = {
   "footer.quickLinks": "Liên kết nhanh",
   "footer.support": "Hỗ trợ",
   "footer.contact": "Liên hệ",
+  "footer.privacyPolicy": "Chính sách bảo mật",
   "footer.copyright":
     "© 2024 Cleaning Japan. Tất cả quyền được bảo lưu. | Trang việc làm dọn dẹp dành cho người Việt tại Nhật",
 }

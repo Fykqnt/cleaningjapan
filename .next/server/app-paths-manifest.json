@@ -1,3 +1,4 @@
 {
+  "/privacy/page": "app/privacy/page.js",
   "/page": "app/page.js"
 }
